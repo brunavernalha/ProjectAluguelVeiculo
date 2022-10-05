@@ -9,10 +9,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Livro {
+public class Veiculo {
 
     private String codigo;
-    private String modelo; //private String nome;
-    private String marca; //private String autor;
+    private String modelo;
+    private String marca;
 
 }

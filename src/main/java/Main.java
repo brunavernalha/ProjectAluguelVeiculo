@@ -14,15 +14,15 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        VeiculoService livroService = new VeiculoService();
-        AluguelService emprestimoService = new AluguelService();
+        VeiculoService veiculoService = new VeiculoService();
+        AluguelService aluguelService = new AluguelService();
 
         while (true) {
             System.out.println("1) Cadastrar veiculo");
             System.out.println("2) Listagem de veiculo");
             System.out.println("3) Cadastro de aluguel");
             System.out.println("4) Listagem dos alugueis");
-            System.out.println("5) Devolução do carro alugado");
+            System.out.println("5) Devolução do veiculo alugado");
 
 
             String opcao = scanner.nextLine();
@@ -37,7 +37,7 @@ public class Main {
                 String codigo = scanner.nextLine();
 
 
-                Veiculo pessoa = veiculoService.cadastrarVeiculo(codigo, modelo, marca);
+                Veiculo veiculo = veiculoService.cadastrarVeiculo(codigo, modelo, marca);
                 if (veiculo != null) {
                     System.out.println("Veiculo cadastrado!!!");
                 } else {
@@ -46,7 +46,7 @@ public class Main {
             }
 
             if (opcao.equals("2")) {
-                List<Veiculo> carro = veiculoService.listaVeiculo();
+                List<Veiculo> veiculo = veiculoService.listarVeiculo();
                 veiculo.forEach(p -> System.out.println(p.getModelo() + " " + p.getCodigo()));
             }
 
@@ -69,15 +69,15 @@ public class Main {
             }
 
             if (opcao.equals("5")) {
-                List<Aluguel> aluguel = emprestimoService.listarAluguel();
-                aluguel.forEach(e -> System.out.println(e.getVeiculo().getCodigo() + " " + e.getDataEmprestimo() + " " + e.getDataDevolucao()));
+                List<Aluguel> aluguel = aluguelService.listarAluguel();
+                aluguel.forEach(e -> System.out.println(e.getVeiculo().getCodigo() + " " + e.getDataAluguel() + " " + e.getDataDevolucao()));
             }
 
             if (opcao.equals("6")) {
                 System.out.println("Digite o Código:");
                 String codigo = scanner.nextLine();
 
-                boolean funcionou = emprestimoService.finalizarAluguel(codigo);
+                boolean funcionou = aluguelService.finalizarAluguel(codigo);
                 if (funcionou) {
                     System.out.println("Aluguel finalizado!!!");
                 } else {

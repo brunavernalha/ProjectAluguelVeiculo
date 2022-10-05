@@ -3,7 +3,7 @@ package model;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class LivroTest {
+public class VeiculoTest {
 
     @Test
     public void testConstrutorVeiculo() {

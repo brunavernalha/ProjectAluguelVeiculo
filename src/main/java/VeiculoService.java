@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class LivroService {
+public class VeiculoService {
 
-    private static List<model.Livro> Veiculo = new ArrayList<>();
+    private static List<model.Veiculo> Veiculo = new ArrayList<>();
 
-    public model.Livro cadastrarVeiculo(String nome, String autor, String codigo) {
+    public model.Veiculo cadastrarVeiculo(String nome, String autor, String codigo) {
         if (nome == null || nome.isEmpty()) {
             return null;
         }
@@ -29,15 +29,16 @@ public class LivroService {
         return veiculo;
     }
 
-    public model.Livro buscarVeiculo(String codigo) {
-        Optional<model.Veiculo> livro = veiculo
+    public model.Veiculo buscarVeiculo(String codigo) {
+        Optional<model.Veiculo> Veiculo = veiculo
                 .stream()
                 .filter(l -> l.getCodigo().equals(codigo))
                 .findFirst();
-        if (livro.isPresent()) {
+        if (veiculo.isPresent()) {
             return veiculo.get();
         }
         return null;
     }
 
 }
+

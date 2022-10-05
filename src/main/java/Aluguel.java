@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ALuguel {
+public class Aluguel {
 
     private model.Veiculo veiculo;
     private LocalDate dataAluguel;

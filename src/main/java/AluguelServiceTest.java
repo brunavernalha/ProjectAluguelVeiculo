@@ -19,7 +19,7 @@ public class AluguelServiceTest {
     private service.AluguelService aluguelService;
 
     @Mock
-    private service.VeiculoService carroService;
+    private service.VeiculoService veiculoService;
 
     @Test
     public void testCadastrarAluguel() {
@@ -28,7 +28,7 @@ public class AluguelServiceTest {
                 .thenReturn(new model.Veiculo("DB0001", "Civic", "Honda"));
 
         Aluguel aluguel
-                = emprestimoService.cadastrarAluguel("DB0001","DB0001");
+                = aluguelService.cadastrarAluguel("DB0001","DB0001");
 
         Assertions.assertEquals("Civic", aluguel.getVeiculo().getModelo());
         Assertions.assertEquals(LocalDate.now(), veiculo.getDataAluguel());
